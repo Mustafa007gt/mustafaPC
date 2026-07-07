@@ -309,18 +309,22 @@
     </div>
   </header>
 
-  <div class="categories-container">
-    <button class="category-btn active" onclick="filterCategory('all')">الكل</button>
-    <button class="category-btn" onclick="filterCategory('shooter')">شوتر وحرب</button>
-    <button class="category-btn" onclick="filterCategory('horror')">رعب وغموض</button>
-    <button class="category-btn" onclick="filterCategory('open-world')">عالم مفتوح</button>
-    <button class="category-btn" onclick="filterCategory('adventure')">مغامرات ومنصات</button>
-    <button class="category-btn" onclick="filterCategory('sports')">رياضة</button>
-  </div>
 
   <main class="games-container">
 
-    <div class="game-card" data-category="shooter">
+     
+       <div class="game-card">
+      <div class="img-container"><img src="images/rott.jpg" alt="rise of the tomb raider" /></div>
+      <h2>RISE OF THE TOMB RAIDER</h2>
+      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
+      <p> كاملة ومترجمة وبحجم 23gb </p>
+      <div class="card-actions">
+        <a class="download-btn" href="https://bzzhr.to/aqtoxxc3zd84" onclick="startDownload(event, this)">تحميل</a>
+       
+      </div>
+    </div>
+
+    <div class="game-card">
       <div class="img-container"><img src="images/cbs.jpg" alt="Call of duty black ops" /></div>
       <h2>Call of duty black ops</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -331,7 +335,7 @@
       </div>
     </div>
 
-    <div class="game-card" data-category="adventure">
+    <div class="game-card" >
       <div class="img-container"><img src="images/cb2.jpg" alt="Crash Bandicoot 4" /></div>
       <h2>Crash Bandicoot 4</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -342,7 +346,7 @@
       </div>
     </div>
     
-    <div class="game-card" data-category="horror">
+    <div class="game-card" >
       <div class="img-container"><img src="images/re6.jpg" alt="Resident Evil 6" /></div>
       <h2>Resident Evil 6</h2>
       <div class="rating-stars" data-stars="4"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -353,7 +357,7 @@
       </div>
     </div>
     
-    <div class="game-card" data-category="open-world">
+    <div class="game-card" >
       <div class="img-container"><img src="images/gta5.jpg" alt="gta 5" /></div>
       <h2>gta 5</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -364,7 +368,7 @@
       </div>
     </div>
 
-    <div class="game-card" data-category="sports">
+    <div class="game-card" >
       <div class="img-container"><img src="images/p17.jpg" alt="PES 2017" /></div>
       <h2>PES 2017</h2>
       <div class="rating-stars" data-stars="4"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -375,7 +379,7 @@
       </div>
     </div>
     
-    <div class="game-card" data-category="shooter">
+    <div class="game-card" >
       <div class="img-container"><img src="images/fc3.jpg" alt="far cry 3 blood dragon" /></div>
       <h2>far cry 3 blood dragon</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -386,7 +390,7 @@
       </div>
     </div>
     
-    <div class="game-card" data-category="open-world">
+    <div class="game-card" >
       <div class="img-container"><img src="images/vc.jpg" alt="gta vc" /></div>
       <h2>gta vice city</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -397,7 +401,7 @@
       </div>
     </div>
     
-    <div class="game-card" data-category="open-world">
+    <div class="game-card">
       <div class="img-container"><img src="images/gta3.jpg" alt="gta 3" /></div>
       <h2>gta 3</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -408,7 +412,7 @@
       </div>
     </div>
     
-    <div class="game-card" data-category="adventure">
+    <div class="game-card">
       <div class="img-container"><img src="images/dmc4.jpg" alt="dmc4" /></div>
       <h2>Devil May Cry 4</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -419,7 +423,7 @@
       </div>
     </div>
 
-    <div class="game-card" data-category="shooter">
+    <div class="game-card" >
       <div class="img-container"><img src="images/cod2.jpg" alt="call of duty 2" /></div>
       <h2>call of duty 2</h2>
       <div class="rating-stars" data-stars="4"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -430,7 +434,7 @@
       </div>
     </div>
 
-    <div class="game-card" data-category="horror">
+    <div class="game-card" >
       <div class="img-container"><img src="images/re5.jpg" alt="resident evil 5" /></div>
       <h2>resident evil 5</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -441,7 +445,7 @@
       </div>
     </div>
 
-    <div class="game-card" data-category="horror">
+    <div class="game-card" >
       <div class="img-container"><img src="images/ots.jpg" alt="outlast" /></div>
       <h2>outlast</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
@@ -452,7 +456,7 @@
       </div>
     </div>
 
-    <div class="game-card" data-category="horror">
+    <div class="game-card">
       <div class="img-container"><img src="images/sh4.jpg" alt="silent hill 4" /></div>
       <h2>silent Hill 4</h2>
       <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
