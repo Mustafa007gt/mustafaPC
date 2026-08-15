@@ -56,56 +56,16 @@
       box-shadow: 0 0 10px #00f7ff50;
     }
 
-    .categories-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 20px;
-      flex-wrap: wrap;
+     .games-container {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+      padding: 15px; max-width: 1200px; margin: 0 auto;
     }
 
-    .category-btn {
-      background: #121212dd;
-      color: #fff;
-      border: 1px solid #00f7ff50;
-      padding: 8px 20px;
-      font-family: 'Cairo', sans-serif;
-      font-size: 15px;
-      font-weight: bold;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px #00f7ff20;
-    }
-
-    .category-btn.active, .category-btn:hover {
-      background: linear-gradient(90deg, #00f7ff, #ff00f7);
-      border-color: transparent;
-      box-shadow: 0 0 15px #00f7ff80;
-      transform: translateY(-2px);
-    }
-
-    .games-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .game-card {
-      background: #121212dd;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 20px #00f7ff30;
+     .game-card {
+      background: #121212dd; border-radius: 16px; padding: 10px;
+      text-align: center; box-shadow: 0 0 20px #00f7ff30;
       transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; 
+      position: relative; overflow: hidden;
     }
 
     .game-card.hidden {
@@ -117,13 +77,9 @@
       box-shadow: 0 0 25px #00f7ff80;
     }
 
-    .img-container {
-      width: 100%;
-      height: 180px;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 15px;
-      border: 1px solid #00f7ff20;
+     .img-container {
+      width: 100%; height: 140px; border-radius: 10px; overflow: hidden;
+      margin-bottom: 15px; border: 1px solid #00f7ff20;
     }
 
     .game-card img {
@@ -135,40 +91,11 @@
 
     .game-card:hover img {
       transform: scale(1.05);
-    }
-
-    .game-card h2 {
-      color: #00f7ff;
-      text-shadow: 0 0 5px #00f7ff;
-      margin: 10px 0 5px 0;
-      font-size: 1.4em;
-    }
-
-    .rating-stars {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      margin-bottom: 10px;
-      flex-direction: row-reverse; 
-    }
-
-    .rating-stars span {
-      font-size: 22px;
-      color: #444;
+    } .game-card h2 {
+      color: #00f7ff; text-shadow: 0 0 5px #00f7ff;
+      margin: 10px 0 5px; font-size: 1.15em;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .rating-stars span.active, .rating-stars span:hover, .rating-stars span:hover ~ span {
-      color: #ffcc00 !important;
-      text-shadow: 0 0 10px #ffcc00;
-    }
-
-    .game-card p {
-      color: #ccc;
-      font-size: 14px;
-      margin-bottom: 15px;
-      min-height: 44px; 
     }
 
     .card-actions {
@@ -209,28 +136,6 @@
     .download-btn:not(.counting):hover {
       transform: translateY(-2px);
       box-shadow: 0 0 25px #00f7ffcc;
-    }
-
-    .youtube-icon-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(255, 0, 0, 0.1);
-      border: 2px solid #ff0000;
-      color: #ff3333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .youtube-icon-btn:hover {
-      background: #ff0000;
-      color: #fff;
-      box-shadow: 0 0 20px #ff0000;
-      transform: translateY(-2px);
     }
 
     #toast-container {
@@ -296,6 +201,31 @@
       align-items: center;
       gap: 15px;
     }
+
+    .game-name-bar {
+      position: fixed; top: 75px; left: 12px; right: 12px; z-index: 10001;
+      background: rgba(18,18,18,.97); color: #00f7ff;
+      border: 1px solid #00f7ff; border-radius: 10px; padding: 10px 14px;
+      text-align: center; font-family: 'Cairo', sans-serif; font-size: 15px;
+      font-weight: bold; white-space: nowrap; overflow-x: auto;
+      box-shadow: 0 0 18px #00f7ff70; text-shadow: 0 0 6px #00f7ff;
+      opacity: 0; transform: translateY(-10px);
+      transition: opacity .25s ease, transform .25s ease;
+      pointer-events: none;
+    }
+    .game-name-bar.show { opacity: 1; transform: translateY(0); }
+
+
+    @media (max-width: 650px) {
+      .games-container { grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 12px; }
+      .game-card { padding: 8px; border-radius: 15px; }
+      .img-container { height: 140px; }
+      .game-card h2 { font-size: 1.05em; }
+      .download-btn { padding: 10px 8px; font-size: 15px; }
+    }
+    @media (max-width: 390px) {
+      .games-container { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -315,8 +245,6 @@
          <div class="game-card">
       <div class="img-container"><img src="images/re8.jpg" alt="re8" /></div>
       <h2>RESIDENT EVIL 8</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p> كاملة ومترجمة وبحجم 38gb </p>
       <div class="card-actions">
         <a class="download-btn" href="https://gofile.io/d/iM1peV" onclick="startDownload(event, this)">تحميل</a>
        
@@ -326,8 +254,6 @@
       <div class="game-card">
       <div class="img-container"><img src="images/skro.jpg" alt="sekiro" /></div>
       <h2>SEKIRO</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p> كاملة ومترجمة وبحجم 13gb </p>
       <div class="card-actions">
         <a class="download-btn" href="https://bzzhr.to/bpf4xp9ptrlv" onclick="startDownload(event, this)">تحميل</a>
        
@@ -337,8 +263,6 @@
        <div class="game-card">
       <div class="img-container"><img src="images/rott.jpg" alt="rise of the tomb raider" /></div>
       <h2>RISE OF THE TOMB RAIDER</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p> كاملة ومترجمة وبحجم 23gb </p>
       <div class="card-actions">
         <a class="download-btn" href="https://bzzhr.to/aqtoxxc3zd84" onclick="startDownload(event, this)">تحميل</a>
        
@@ -348,8 +272,6 @@
     <div class="game-card">
       <div class="img-container"><img src="images/cbs.jpg" alt="Call of duty black ops" /></div>
       <h2>Call of duty black ops</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>النسخة الكاملة مع طور القصة + الزومبي</p>
       <div class="card-actions">
         <a class="download-btn" href="https://www.mediafire.com/file/tcgljzac4dvjyew/Call+of+Duty+Black+Ops+By+Mustafa+Gamers.zip/file" onclick="startDownload(event, this)">تحميل</a>
        
@@ -359,8 +281,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/cb2.jpg" alt="Crash Bandicoot 4" /></div>
       <h2>Crash Bandicoot 4</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>افضل العاب المنصات والمغامرات وهذا الجزء خرافي انصح به بشدة</p>
       <div class="card-actions">
         <a class="download-btn" href="https://buzzheavier.com/g8f1hx6lncv0" onclick="startDownload(event, this)">تحميل</a>
        
@@ -370,8 +290,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/re6.jpg" alt="Resident Evil 6" /></div>
       <h2>Resident Evil 6</h2>
-      <div class="rating-stars" data-stars="4"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>الجزء السادس من لعبة resident evil 6</p>
       <div class="card-actions">
         <a class="download-btn" href="https://buzzheavier.com/uww3eogkg4ar" onclick="startDownload(event, this)">تحميل</a>
         
@@ -381,8 +299,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/gta5.jpg" alt="gta 5" /></div>
       <h2>gta 5</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p> كاملة ومترجمة وبحجم 25gb </p>
       <div class="card-actions">
         <a class="download-btn" href="https://buzzheavier.com/x380i58vd8f8" onclick="startDownload(event, this)">تحميل</a>
        
@@ -392,8 +308,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/p17.jpg" alt="PES 2017" /></div>
       <h2>PES 2017</h2>
-      <div class="rating-stars" data-stars="4"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>لعبة بيس 2017 بحجم صغير شغالة 100%</p>
       <div class="card-actions">
         <a class="download-btn" href="https://www.mediafire.com/file/s1i4d3b314xrol6/Pro+Evolution+Soccer+2017+Optimized.7z/file" onclick="startDownload(event, this)">تحميل</a>
        
@@ -403,8 +317,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/fc3.jpg" alt="far cry 3 blood dragon" /></div>
       <h2>far cry 3 blood dragon</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>افضل لعبة تصويب في الفضاء</p>
       <div class="card-actions">
         <a class="download-btn" href="https://modsfire.com/0YU3599c073tn6N" onclick="startDownload(event, this)">تحميل</a>
       
@@ -414,8 +326,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/vc.jpg" alt="gta vc" /></div>
       <h2>gta vice city</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>افضل لعبة عالم مفتوح في مدينة فايس سيتي</p>
       <div class="card-actions">
         <a class="download-btn" href="https://modsfire.com/0w0xRn9WAUV1fta" onclick="startDownload(event, this)">تحميل</a>
        
@@ -425,8 +335,6 @@
     <div class="game-card">
       <div class="img-container"><img src="images/gta3.jpg" alt="gta 3" /></div>
       <h2>gta 3</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>احدى افضل العاب العالم المفتوح التي عملت ثورة في عالم الالعاب</p>
       <div class="card-actions">
         <a class="download-btn" href="https://modsfire.com/P92b381SLGjfV8T" onclick="startDownload(event, this)">تحميل</a>
       
@@ -436,8 +344,6 @@
     <div class="game-card">
       <div class="img-container"><img src="images/dmc4.jpg" alt="dmc4" /></div>
       <h2>Devil May Cry 4</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>اقوى لعبة اكشن</p>
       <div class="card-actions">
         <a class="download-btn" href="https://pixeldrain.com/u/TsdPFa2A" onclick="startDownload(event, this)">تحميل</a>
        
@@ -447,8 +353,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/cod2.jpg" alt="call of duty 2" /></div>
       <h2>call of duty 2</h2>
-      <div class="rating-stars" data-stars="4"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>الجزء الثاني من سلسلة العاب الحرب الشهيرة</p>
       <div class="card-actions">
         <a class="download-btn" href="https://buzzheavier.com/pra2ghw7ffy6" onclick="startDownload(event, this)">تحميل</a>
        
@@ -458,8 +362,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/re5.jpg" alt="resident evil 5" /></div>
       <h2>resident evil 5</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>الجزء الخامس من سلسلة العاب الشر المقيم</p>
       <div class="card-actions">
         <a class="download-btn" href="https://www.mediafire.com/file/ttn6avzoqn5oghn/Resident+Evil+5+By+MUSTAFA+GAMERS.zip/file" onclick="startDownload(event, this)">تحميل</a>
        
@@ -469,8 +371,6 @@
     <div class="game-card" >
       <div class="img-container"><img src="images/ots.jpg" alt="outlast" /></div>
       <h2>outlast</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>اكثر لعبة رعب بلتاريخ</p>
       <div class="card-actions">
         <a class="download-btn" href="https://modsfire.com/0tW47cUeJnb0AL8" onclick="startDownload(event, this)">تحميل</a>
        
@@ -480,8 +380,6 @@
     <div class="game-card">
       <div class="img-container"><img src="images/sh4.jpg" alt="silent hill 4" /></div>
       <h2>silent Hill 4</h2>
-      <div class="rating-stars" data-stars="5"><span data-value="5">★</span><span data-value="4">★</span><span data-value="3">★</span><span data-value="2">★</span><span data-value="1">★</span></div>
-      <p>سايلنت هيل 4 مترجمة عربي</p>
       <div class="card-actions">
         <a class="download-btn" href="https://modsfire.com/85pneFtC666vC4w" onclick="startDownload(event, this)">تحميل</a>
        
@@ -496,24 +394,10 @@
 
   <footer>
     <div class="footer-content">
-      <p>جميع الحقوق محفوظة © 2026</p>
     </div>
   </footer>
 
-  <script>
-    let currentCategory = 'all';
-
-    function filterCategory(category) {
-      currentCategory = category;
-      const buttons = document.querySelectorAll('.category-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      if(window.event && window.event.target) {
-        window.event.target.classList.add('active');
-      }
-      applyFilter();
-    }
-
-    const searchInput = document.getElementById('searchInput');
+  <script>const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', applyFilter);
 
     function applyFilter() {
@@ -521,20 +405,32 @@
       const gameCards = document.querySelectorAll('.game-card');
 
       gameCards.forEach(card => {
-        const title = card.querySelector('h2').textContent.toLowerCase();
-        const description = card.querySelector('p').textContent.toLowerCase();
-        const cardCategory = card.getAttribute('data-category');
+        const title = card.querySelector('h2').textContent.toLowerCase();const matchesSearch = title.includes(query);
 
-        const matchesSearch = title.includes(query) || description.includes(query);
-        const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
-
-        if (matchesSearch && matchesCategory) {
+        if (matchesSearch) {
           card.classList.remove('hidden');
         } else {
           card.classList.add('hidden');
         }
       });
     }
+
+
+    document.querySelectorAll('.game-card h2').forEach(title => {
+      title.addEventListener('click', () => {
+        if (title.scrollWidth <= title.clientWidth) return;
+        document.querySelectorAll('.game-name-bar').forEach(x => x.remove());
+        const bar = document.createElement('div');
+        bar.className = 'game-name-bar';
+        bar.textContent = title.textContent;
+        document.body.appendChild(bar);
+        requestAnimationFrame(() => bar.classList.add('show'));
+        setTimeout(() => {
+          bar.classList.remove('show');
+          setTimeout(() => bar.remove(), 250);
+        }, 2500);
+      });
+    });
 
     function showToast(message) {
       const container = document.getElementById('toast-container');
@@ -574,36 +470,6 @@
         }
       }, 1000);
     }
-
-    document.querySelectorAll('.rating-stars').forEach(container => {
-      const defaultStars = parseInt(container.getAttribute('data-stars')) || 5;
-      const stars = container.querySelectorAll('span');
-      
-      const setStarsValue = (val) => {
-        stars.forEach(star => {
-          const starValue = parseInt(star.getAttribute('data-value'));
-          if (starValue <= val) {
-            star.classList.add('active');
-          } else {
-            star.classList.remove('active');
-          }
-        });
-      };
-
-      setStarsValue(defaultStars);
-
-      stars.forEach(star => {
-        star.addEventListener('click', (e) => {
-          e.stopPropagation(); 
-          const clickedValue = parseInt(star.getAttribute('data-value'));
-          const gameTitle = container.parentElement.querySelector('h2').textContent;
-          
-          container.setAttribute('data-stars', clickedValue);
-          setStarsValue(clickedValue);
-          showToast(`⭐ شكراً لتقييمك لعبة <span style="color:#ffcc00">${gameTitle}</span> بـ ${clickedValue} نجوم!`);
-        });
-      });
-    });
   </script>
 </body>
 </html>
