@@ -190,8 +190,7 @@ padding:18px 20px 40px;
 
 display:grid;
 
-grid-template-columns:
-repeat(4,1fr);
+grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
 gap:15px;
 }
@@ -737,17 +736,8 @@ font-size:12px;
 
 
 /* =========================
-   MOBILE
+   MOBILE & RESPONSIVE
 ========================= */
-
-@media(max-width:1000px){
-
-.games-container{
-grid-template-columns:
-repeat(3,1fr);
-}
-
-}
 
 @media(max-width:700px){
 
@@ -771,8 +761,7 @@ margin-top:13px;
 
 .games-container{
 
-grid-template-columns:
-repeat(2,1fr);
+grid-template-columns: repeat(2, 1fr);
 
 gap:9px;
 
@@ -899,7 +888,6 @@ autocomplete="off"
 
 <main class="games-container">
 
-   
 <div class="game-card">
 
 <div class="img-container">
@@ -920,6 +908,7 @@ onclick="startDownload(event,this)"
 
 </div>
 
+</div>
 
 
 <div class="game-card">
@@ -1057,6 +1046,7 @@ onclick="startDownload(event,this)"
 </div>
 
 </div>
+
    <div class="game-card">
 
 <div class="img-container">
@@ -1078,10 +1068,6 @@ onclick="startDownload(event,this)"
 </div>
 
 </div>
-
-
-   
-
 
 
       <div class="game-card">
